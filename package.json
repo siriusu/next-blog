@@ -1,0 +1,11 @@
+{
+  "name": "blog-next",
+  "version": "0.0.1",
+  "description": "create weblog using Next.js",
+  "main": "index.js",
+  "author": "siriusu",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^9.4.4"
+  }
+}
