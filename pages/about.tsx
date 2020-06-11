@@ -8,9 +8,9 @@ export default function Index() {
         <title>siriusu blog</title>
       </Head>
       <section className="content-main">
-        <p>this is index</p>
-        <Link href="/about" as={`/about`}>
-          <a>about here</a>
+        <p>this is about</p>
+        <Link href="/" as={`/`}>
+          <a>main page here</a>
         </Link>
       </section>
     </>
