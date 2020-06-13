@@ -1,7 +1,8 @@
 import App, { AppProps, Container } from 'next/app'
 import { Component } from 'react'
+import '../styles/index.css'
 
-export const config = { amp: true }
+// export const config = { amp: true }
 export default class CustomApp extends App {
   render() {
     const { Component, pageProps } = this.props

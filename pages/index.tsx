@@ -7,8 +7,10 @@ export default function Index() {
       <Head>
         <title>siriusu blog</title>
       </Head>
-      <section className="content-main">
-        <p>this is index</p>
+      <section className="content-main text-center">
+        <p className="font-bold text-4xl text-gray-500">
+          this is index
+        </p>
         <Link href="/about" as={`/about`}>
           <a>about here</a>
         </Link>
