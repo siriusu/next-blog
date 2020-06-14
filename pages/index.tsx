@@ -1,9 +1,11 @@
+import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Layout from '../components/layout'
 
-export default function Index() {
-  return (
-    <>
+const Index: NextPage = props => (
+  <>
+    <Layout>
       <Head>
         <title>siriusu blog</title>
       </Head>
@@ -15,6 +17,7 @@ export default function Index() {
           <a>about here</a>
         </Link>
       </section>
-    </>
-  )
-}
+    </Layout>
+  </>
+)
+export default Index

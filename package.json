@@ -9,7 +9,9 @@
     "url": "https://github.com/siriusu/next-blog.git"
   },
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "autoprefixer": "^9.8.0",
