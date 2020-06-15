@@ -3,6 +3,7 @@
 
 # next
 /.next
+next.config.js
 .env.local
 
 # vscode
