@@ -1,54 +1,44 @@
-import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Container from '../components/container'
 import Layout from '../components/layout'
-import fetch from 'isomorphic-unfetch'
-import React from 'react'
 
-const Index: NextPage = ({ blogs }) => {
+export default function Index({ blogs }) {
   return (
     <>
       <Layout>
         <Head>
           <title>siriusu blog</title>
         </Head>
-        <section className="content-main text-center">
-          <p className="font-bold text-4xl text-gray-500">
-            this is index
-        </p>
-          <Link href="/about" as={`/about`}>
-            <a>about here</a>
-          </Link>
-        </section>
-        <h2>blog</h2>
-        <div>
-          {blogs.map(blog => (
-            <React.Fragment>
-              <Link href="/blogs/[id]" as={`blogs/${blog.id}`}>
+        <Container>
+          <section className="content-main text-center">
+            <p className="font-bold text-4xl text-gray-500">
+              this is index
+            </p>
+            <Link href="/about" as={`/about`}>
+              <a>about here</a>
+            </Link>
+          </section>
+          <h2>blog</h2>
+          <div>
+            {blogs.map(blog => (
+              <Link href="/blogs/[id]" as={`blogs/${blog.id}`} key="${blog.id}">
                 <a>
                   <h3>{blog.title}</h3>
                 </a>
               </Link>
-              {blog.tags.map(tag => (
-                <React.Fragment key={tag.id}>
-                  <span>{tag.name}</span>
-                </React.Fragment>
-              ))}
-            </React.Fragment>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Container>
       </Layout>
     </>
   )
 }
 
-export const getStaticProps = async () => {
-  const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY }
-  }
+export async function getStaticProps() {
   const res = await fetch(
     `https://siriusu-blog.microcms.io/api/v1/blogs/`,
-    key
+    { headers: { 'X-API-KEY': process.env.API_KEY } }
   )
   const data = await res.json()
 
@@ -58,4 +48,3 @@ export const getStaticProps = async () => {
     }
   }
 }
-export default Index
