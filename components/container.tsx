@@ -1,3 +1,11 @@
+
+
 export default function Container({ children }) {
-  return <div className="container mx-auto px-5">{children}</div>
+  const styles = [
+    "container",
+    "mx-auto",
+    "px-5",
+    "bg-blue-500"
+  ]
+  return <div className={styles.join(" ")}>{children}</div>
 }

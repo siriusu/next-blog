@@ -1,4 +1,4 @@
-import '../styles/index.css'
+import '../styles/styles.css'
 
 // export const config = { amp: true }
 function MyApp({ Component, pageProps }) {

@@ -1,15 +1,12 @@
-import fetch from 'isomorphic-unfetch'
-import React from 'react'
-
 const BlogId = ({ blog }) => {
   return (
     <div>
       <h1>{blog.title}</h1>
-      <div>
+      <div className="flex-1">
         {blog.tags.map(tag => (
-          <React.Fragment key={tag.id}>
+          <div className="inline-block bg-yellow-300 rounded-lg px-2 py-1 text-xs font-semibold text-gray-700 mr-2" key={tag.id}>
             <span>{tag.name}</span>
-          </React.Fragment>
+          </div>
         ))}
       </div>
       <div dangerouslySetInnerHTML={{ __html: `${blog.body}` }}></div>
@@ -18,16 +15,12 @@ const BlogId = ({ blog }) => {
 }
 
 export const getStaticPaths = async () => {
-  const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY }
-  }
-
   const res = await fetch(
     `https://siriusu-blog.microcms.io/api/v1/blogs/`,
-    key
+    { headers: { 'X-API-KEY': process.env.API_KEY } }
   )
-  const repos = await res.json()
-  const paths = repos.contents.map(repo => `/blogs/${repo.id}`)
+  const blogs = await res.json()
+  const paths = blogs.contents.map(blog => `/blogs/${blog.title}`)
 
   return { paths, fallback: false }
 }

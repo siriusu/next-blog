@@ -12,9 +12,9 @@ export default function Index({ blogs }) {
         </Head>
         <Container>
           <section className="content-main text-center">
-            <p className="font-bold text-4xl text-gray-500">
+            <h2 className="p-3 my-8 text-lg font-bold bg-yellow-400 md:text-2xl">
               this is index
-            </p>
+            </h2>
             <Link href="/about" as={`/about`}>
               <a>about here</a>
             </Link>
@@ -22,7 +22,7 @@ export default function Index({ blogs }) {
           <h2>blog</h2>
           <div>
             {blogs.map(blog => (
-              <Link href="/blogs/[id]" as={`blogs/${blog.id}`} key="${blog.id}">
+              <Link href="/blogs/[id]" as={`blogs/${blog.id}`} key="${blog.title}">
                 <a>
                   <h3>{blog.title}</h3>
                 </a>
